@@ -11,16 +11,27 @@ import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 const httpServer = createServer(app);
+// const io = new Server(httpServer, {
+//   cors: {
+//     //origin: "https://tu-proyecto.vercel.app", // Reemplazá con tu URL real de Vercel
+//     origin: "https://taskflow-frontend-eight.vercel.app",
+//     methods: ["GET", "POST"],
+//     credentials: true
+//   }
+// });
 const io = new Server(httpServer, {
   cors: {
-    //origin: "https://tu-proyecto.vercel.app", // Reemplazá con tu URL real de Vercel
-    origin: "https://taskflow-frontend-eight.vercel.app",
+    // REEMPLAZÁ POR ESTA URL EXACTA:
+    origin: "https://gestor-tareas-tiempo-real-frontend.vercel.app", 
     methods: ["GET", "POST"],
     credentials: true
   }
 });
-
-app.use(cors());
+app.use(cors({
+  origin: "https://gestor-tareas-tiempo-real-frontend.vercel.app",
+  credentials: true
+}));
+//app.use(cors());
 app.use(express.json());
 
 app.use((req: any, _res, next) => {
