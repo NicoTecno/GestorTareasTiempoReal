@@ -4,7 +4,7 @@ import { Login } from './components/Login';
 import { TaskForm } from './components/TaskForm';
 import { Modal } from './components/Modal'; // Asegúrate de haber creado este archivo
 import { logout } from './api/auth';
-import { Trash2, LogOut, CheckCircle, Clock, User, Filter, BarChart3, Layout, SortAsc, Search } from 'lucide-react';
+import { Trash2, LogOut, CheckCircle, Clock, User, Filter, Layout, SortAsc, Search } from 'lucide-react';
 import api from './api/axios';
 
 function App() {
