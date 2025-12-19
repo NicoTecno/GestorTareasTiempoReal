@@ -11,7 +11,14 @@ import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer, { cors: { origin: "*" } });
+//const io = new Server(httpServer, { cors: { origin: "*" } });
+const io = new Server(httpServer, {
+  cors: {
+    origin: "https://tu-proyecto.vercel.app", // Reemplazá con tu URL real de Vercel
+    methods: ["GET", "POST"],
+    credentials: true
+  }
+});
 
 app.use(cors());
 app.use(express.json());
