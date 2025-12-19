@@ -1,16 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "types": ["node"],
+    "target": "ES2020",
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "allowImportingTsExtensions": true,
-    "noEmit": true
+    "noEmit": false,
+    "noImplicitAny": false
   },
   "include": ["src/**/*"]
 }
