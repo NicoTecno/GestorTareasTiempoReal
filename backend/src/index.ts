@@ -11,10 +11,10 @@ import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 const httpServer = createServer(app);
-//const io = new Server(httpServer, { cors: { origin: "*" } });
 const io = new Server(httpServer, {
   cors: {
-    origin: "https://tu-proyecto.vercel.app", // Reemplazá con tu URL real de Vercel
+    //origin: "https://tu-proyecto.vercel.app", // Reemplazá con tu URL real de Vercel
+    origin: "https://taskflow-frontend-eight.vercel.app",
     methods: ["GET", "POST"],
     credentials: true
   }
