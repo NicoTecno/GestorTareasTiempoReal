@@ -1,0 +1,32 @@
+name: GestorTareasBackend
+services:
+  
+  app:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@database:5432/${DATABASE_NAME}?sslmode=disable
+
+    depends_on:
+      database:
+        condition: service_healthy
+
+  database:
+    image: postgres:18
+    environment:
+      POSTGRES_DB : ${DATABASE_NAME}
+      POSTGRES_USER : ${DATABASE_USER}
+      POSTGRES_PASSWORD : ${DATABASE_PASSWORD}
+    
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USER} -d ${DATABASE_NAME}"]
+      interval: 5s
+      retries: 5
+
+volumes:
+  postgres_data: {}
+
