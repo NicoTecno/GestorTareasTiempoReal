@@ -10,7 +10,7 @@ on:
 
 jobs:
   instalarDependeciasBackend:
-    runs-on: Ubuntu-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: backend/
@@ -25,7 +25,7 @@ jobs:
       - run: npm ci
 
   pruebas:
-    runs-on: Ubuntu-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: backend/
@@ -43,7 +43,7 @@ jobs:
   
   #verificar error de linter, ver linetr desp!
   lint:
-    runs-on: Ubuntu-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: backend/
