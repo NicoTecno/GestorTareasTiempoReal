@@ -37,7 +37,7 @@ jobs:
           cache: 'npm'
           cache-dependency-path: 'backend/package-lock.json'
 
-      #- run: cd backend/
+      #- run: cd backend/  #AAAAAAAAA
       - run: npm ci
       - run: npm test -- --coverage
   
