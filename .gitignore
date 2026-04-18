@@ -12,3 +12,5 @@ build/
 
 # Otros
 .DS_Store
+
+coverage/
