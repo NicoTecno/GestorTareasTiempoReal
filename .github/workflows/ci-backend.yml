@@ -10,6 +10,9 @@ on:
 jobs:
   instalarDependeciasBackend:
     runs-on: Ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend/
     steps:
       - uses : actions/checkout@v4
       - uses : actions/setup-node@v4
@@ -20,17 +23,25 @@ jobs:
 
   pruebas:
     runs-on: Ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend/
     steps:
       - uses : actions/checkout@v4
       - uses : actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
+      #- run: cd backend/
+      - run: npm ci
       - run: npm test -- --coverage
   
   #verificar error de linter, ver linetr desp!
   lint:
     runs-on: Ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend/
     steps:
       - uses : actions/checkout@v4
       - uses : actions/setup-node@v4
