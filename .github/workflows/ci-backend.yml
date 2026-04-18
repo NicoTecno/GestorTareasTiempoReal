@@ -1,0 +1,41 @@
+name: CIbackend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+
+jobs:
+  instalarDependeciasBackend:
+    runs-on: Ubuntu-latest
+    steps:
+      - uses : actions/checkout@v4
+      - uses : actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      - run: npm ci
+
+  pruebas:
+    runs-on: Ubuntu-latest
+    steps:
+      - uses : actions/checkout@v4
+      - uses : actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      - run: npm test -- --coverage
+  
+  #verificar error de linter, ver linetr desp!
+  lint:
+    runs-on: Ubuntu-latest
+    steps:
+      - uses : actions/checkout@v4
+      - uses : actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      - run: npm run lint
+
